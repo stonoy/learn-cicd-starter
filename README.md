@@ -1,4 +1,5 @@
-![ALT_TEXT](IMAGE_URL)
+![Test Status](https://github.com/stonoy/YourRepository/actions/workflows/ci.yml/badge.svg)
+
 
 
 # learn-cicd-starter (Notely)
