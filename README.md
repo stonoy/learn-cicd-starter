@@ -15,12 +15,15 @@ Create a `.env` file in the root of the project with the following contents:
 ```bash
 PORT="8080"
 ```
+![Test Status](https://github.com/stonoy/learn-cicd-starter/actions/workflows/ci.yml/badge.svg)
+
 
 Run the server:
 
 ```bash
 go build -o notely && ./notely
 ```
+To learn pull requests
 
 *This starts the server in non-database mode.* It will serve a simple webpage at `http://localhost:8080`.
 
