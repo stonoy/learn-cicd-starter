@@ -27,5 +27,10 @@ func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
 		return
 	}
 	w.WriteHeader(code)
-	w.Write(dat)
+
+	// Write the data to the response and handle any errors
+	if _, err := w.Write(dat); err != nil {
+		log.Printf("Error writing response: %v", err)                          // Log the error
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError) // Send a 500 status code
+	}
 }
