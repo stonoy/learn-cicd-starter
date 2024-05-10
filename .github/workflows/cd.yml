@@ -24,6 +24,12 @@ jobs:
       - name: Build Docker image
         run: docker build -t gcr.io/notely-422814/notely-ar-repo/notely:latest .
 
+      # Add the migration step here
+      - name: Run DB migrations
+        run: ./scripts/migrateup.sh
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
       - name: Set up Google Cloud
         uses: google-github-actions/setup-gcloud@v0.2.0
         with:
@@ -38,4 +44,4 @@ jobs:
 
       - name: Deploy to Cloud Run
         run: |
-          gcloud run deploy notely --image gcr.io/notely-422814/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project notely-422814 --max-instances=4
+          gcloud run deploy notely --image gcr.io/notely-422814/notely-ar-repo/notely:latest
