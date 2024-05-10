@@ -24,7 +24,7 @@ jobs:
       - name: Set up Google Cloud
         uses: google-github-actions/setup-gcloud@v0.2.0
         with:
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
           project_id: notely-422814
 
       - name: Deploy to Cloud Run
