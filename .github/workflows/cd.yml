@@ -33,6 +33,7 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
+      
       - name: Set up Google Cloud
         uses: google-github-actions/setup-gcloud@v0.2.0
         with:
@@ -46,5 +47,4 @@ jobs:
         run: docker push gcr.io/notely-422814/notely-ar-repo/notely:latest
 
       - name: Deploy to Cloud Run
-        run: |
-          gcloud run deploy notely --image gcr.io/notely-422814/notely-ar-repo/notely:latest
+        run: gcloud run deploy notely --image gcr.io/notely-422814/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project notely-422814 --max-instances=4
