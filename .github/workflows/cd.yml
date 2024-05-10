@@ -22,5 +22,5 @@ jobs:
         run: scripts/buildprod.sh
 
       - name: Deploy to Cloud Run
-        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/422814/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project 422814 --max-instances=4
+        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/422814/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project notely-422814 --max-instances=4
       
